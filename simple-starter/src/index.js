@@ -20,6 +20,7 @@ class App extends Component {
 
     YTSearch({key: API_KEY, term: 'surfboards'}, (videos) => {
         this.setState({ videos });  // ES6 allows using just the name of the property when key/property have same name
+        console.log(videos);
       }
     );
   }

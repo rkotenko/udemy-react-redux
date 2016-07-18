@@ -15,8 +15,8 @@ class SearchBar extends Component {
         <input
           value = {this.state.term} // setting value by state makes this a "controlled" component and its value can only be changed through change in state
           onChange={e => this.setState({term: e.target.value})}
+          placeholder="Search Videos"
         />
-        Value of the input: {this.state.term}
       </div>
     );
   }
