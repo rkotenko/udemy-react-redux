@@ -1,11 +1,11 @@
 import React from 'react';
 
-// curly braces in the argument turns the video properyy of the param into a variable
-const VideoListItem = ({video}) => {
+// curly braces in the argument turns the video property of the param into a variable
+const VideoListItem = ({video, onVideoSelect}) => {
   const imageUrl = video.snippet.thumbnails.default.url;
   const title = video.snippet.title;
   return (
-    <li className="list-group-item">
+    <li onClick={() => onVideoSelect(video)} className="list-group-item">
       <div className="video-list media">
         <div clasName="media-left">
           <img src={imageUrl} className="media-object" />

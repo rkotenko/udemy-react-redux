@@ -5,11 +5,16 @@ const VideoList = (props) => {
   const videoItems = props.videos.map((video) => {
 
     // key allows react to update just an affected item and not the whole list
-    return <VideoListItem key={video.etag} video={video} />
+    return (
+      <VideoListItem
+        onVideoSelect = {props.onVideoSelect}
+        key={video.etag}
+        video={video} />
+    );
   });
 
   return (
-    <ul className="col-md-4 list-group">
+    <ul className="col-md-5 list-group">
       {videoItems}
     </ul>
   );

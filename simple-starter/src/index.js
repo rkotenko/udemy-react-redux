@@ -3,10 +3,9 @@ import ReactDOM from 'react-dom';
 import YTSearch from 'youtube-api-search';
 import SearchBar from './components/search-bar';
 import VideoList from'./components/video-list';
+import VideoDetail from './components/video-detail.js';
 
 const API_KEY = ' AIzaSyBFFnTgaaWf85XRXeUpA501Yk7QJVYnYPg ';
-
-
 
 // ES6 anonymous function; context for this is the enclosing context
 // when returning a single line, the braces can be eliminated and so can 'return'
@@ -16,11 +15,17 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {videos: []};
+    this.state = {
+      videos: [],
+      selectedVideo: null
+    };
 
     YTSearch({key: API_KEY, term: 'surfboards'}, (videos) => {
-        this.setState({ videos });  // ES6 allows using just the name of the property when key/property have same name
-        console.log(videos);
+        this.setState({
+          videos: videos,
+          selectedVideo: videos[0]
+        });
+       console.log(videos);
       }
     );
   }
@@ -29,7 +34,10 @@ class App extends Component {
     return (
       <div>
         <SearchBar />
-        <VideoList videos={this.state.videos} />
+        <VideoDetail video={this.state.selectedVideo} />
+        <VideoList
+          onVideoSelect={selectedVideo => this.setState({selectedVideo})}
+          videos={this.state.videos} />
       </div>
     );
   }
