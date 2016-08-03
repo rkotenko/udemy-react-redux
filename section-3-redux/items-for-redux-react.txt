@@ -1,0 +1,15 @@
+- A reducer function that returns a piece of state.  2 params: state (redux, not react, state), and action.  Returns data based on action type
+
+- a rootReducer that uses redux/combineReducers to put all the individual reducers together
+
+- an action function which returns an object which minimally has a type property (usually payload as well)
+
+- a react component(container) with the following:
+  - an event property in the render function that calls the action function
+  - a mapStateToProps function that returns an object which maps the redux state (value) to the react prop (property name)
+  - a mapDispatchToProps function which binds the action function to the redux dispatch
+  - a call to react-redux/connect to attach the map functions to the react component - this is what makes the component a container
+  
+- if the container is complex enough, the react component that handles the rendering and UI should be separate from the container
+  
+ 

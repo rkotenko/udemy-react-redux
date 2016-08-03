@@ -5,5 +5,5 @@ export default function BooksReducer() {
     {title: "A story about a boy"},
     {title: "Vampires!"},
     {title: "Dogs and cats"}
-  ]
-}
+  ];
+};
