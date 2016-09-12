@@ -11,5 +11,8 @@
   - a call to react-redux/connect to attach the map functions to the react component - this is what makes the component a container
   
 - if the container is complex enough, the react component that handles the rendering and UI should be separate from the container
+
+- promises:
+  - redux-promise with applyMiddleware from redux
   
  
